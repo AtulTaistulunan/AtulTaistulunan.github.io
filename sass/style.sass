@@ -1,0 +1,490 @@
+@mixin center
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+
+@mixin transX($tranX)
+    transform: translateX($tranX)
+
+@mixin transY($tranY)
+    transform: translateY($tranY)
+
+@mixin transXY($tranX, $tranY)
+    transform: translate($tranX, $tranY)
+    
+$white: #FAFCFB
+$dark_brown: #18100D
+$light_yellow: #EBCC91
+
+body,html
+    margin: 0
+    padding: 0
+    width: 100vw
+    height: 100vh
+    overflow-x: hidden
+    z-index: -55
+    &::-webkit-scrollbar
+        display: none
+
+*
+    // border: 1px solid #000
+    position: relative
+    font-family: "jf-openhuninn-1.1", "微軟正黑體"
+
+
+
+
+.intro
+    width: 100%
+    height: 100%
+    
+    min-width: 750px
+    background-image: url("../img/up.png")
+    background-size: cover
+    background-position: 50% 50%
+
+    &:before
+        content: ""
+        position: absolute
+
+        width: 100%
+        height: 100%
+
+        background-color: rgba($dark_brown, 0.25)
+
+    
+
+    .intro-title
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+
+        .sec1-title
+            +center
+            width: 54%
+            min-width: 450px
+            // display: inline-block
+            
+            .sub-title,.title-button
+                color: $light_yellow
+                font-size: 1.2vw
+                letter-spacing: 1px
+
+            .sub-title
+                margin-bottom: 30px
+                display: flex
+                align-items: center
+                
+                .sub-line
+                    width: 3.5vw
+                    height: 5px
+
+                    margin-right: 1.5vw
+                    // border-radius: 5px
+                    background-color: $light_yellow          
+
+            .title-button
+                margin-top: 20px
+
+            .big-title
+                color: $white
+                font-size: 3.8vw
+                letter-spacing: 2px
+            
+            .title-button
+                display: inline-block
+                left: 100%
+                +transX(-140%)
+
+                p
+                    margin: 0
+                    vertical-align: middle
+                    letter-spacing: 2px
+                    
+
+                    
+                
+        
+        .intro-navbar
+            width: calc( 100% -  15.6%)
+            min-width: 750px
+            height: 50px
+            background-color: transparent
+        
+            position: fixed
+            top: 40px
+            left: 50%
+            +transX(-50%)
+            
+            
+            .logo, .aboutUs, .contactUs
+                display: inline-block
+                top: 50%
+                +transY(-50%)
+                position: absolute
+                color: $white
+                font-size: 1vw
+
+            .logo
+                left: 0
+            .aboutUs
+                +center
+            .contactUs
+                right: 0
+
+        .sidebar-right
+            position: fixed
+
+            top: 50%
+            +transY(-50%)
+            right: 8.8%
+
+            display: flex
+            align-items: center
+        
+            ul
+                padding: 0
+                margin: 0
+                display: inline-block
+                
+                li
+                    width: 45px
+                    font-size: 20px
+                    list-style: none
+                    color: $white
+                    margin-bottom: 15px
+                    text-align: center
+
+                li:nth-child(4)
+                    margin-bottom: 0 //移除最後一個li的margin-bottom
+
+            .sidebar-line
+                width: 180px
+                height: 5px
+                background-color: rgba($white, 0.3)
+                transform: rotate(90deg)
+                left: -25px
+                border-radius: 5px 
+
+                position: absolute
+
+                &:before
+                    content: ""
+                    
+                    position: absolute
+                    left: 0
+                    top: 0
+
+                    width: 100px
+                    height: 5px
+                    
+                    background-color: $white
+                    border-radius: 5px
+
+        .sidebar-left
+            
+            
+            color: $white
+            text-align: center
+            box-sizing: border-box
+
+            position: fixed
+            top: 50%
+            left: 7.8%
+            +transXY(-30%, -50%)
+            display: flex
+            flex-direction: column
+
+            letter-spacing: 1px
+
+            .followus
+                font-size: 20px
+                display: flex
+                align-items: center
+                top: 0
+                transform: rotate(90deg)
+                height: 78px
+                vertical-align: middle
+            i
+                font-size: 25px
+                margin-top: 7px
+                
+    .mouse
+        +center
+        top: 80%
+        transform: translate(-50%, -40%)
+
+
+.blog
+    width: 100%
+    height: 100%
+    z-index: -5
+    
+    background-color: $dark_brown
+    background-image: url('../img/sec-2.png')
+    background-size: cover
+    
+    .container
+        width: 100%
+        height: 100%
+        // border: 1px solid $white
+
+        padding: 0
+
+        overflow: hidden
+        
+        
+        .row
+            width: 100%
+            height: 100%
+            margin: 0
+            top: 5%
+            
+            // flex-wrap: nowrap
+
+            .col-sm-6
+                height: 100%
+                padding: 0
+
+            .sec2-img
+                width: calc(100%*2/3 + 10%) 
+                top: 50%
+                left: 50%
+                +transXY(-50%, -50%)
+                
+            .sec2-title
+                color: $white
+                margin: auto
+                top: -10px
+                
+                .title,.sec2-subtitle,.sec2-button
+                    width: calc(100%*2/3 + 10%) 
+                    left: 50%
+                    +transX(-50%)
+
+                .title
+                    font-size: 3vw
+                    margin-bottom: 3.5vw
+
+                .sec2-subtitle
+                    text-indent: 2rem
+                    line-height: 1.6rem
+
+                    display: -webkit-box
+                    -webkit-line-clamp: 3
+                    -webkit-box-orient: vertical
+                    overflow: hidden
+                    margin-bottom: 2vw
+
+                .sec2-button
+                    color: $light_yellow
+
+// service----------------------
+
+.service
+    width: 100%
+    height: 100%
+
+    background-color: $dark_brown
+    background-image: url('../img/sec-works.png')
+    background-size: cover
+
+    z-index: -10
+
+    
+
+    .service-title
+        color: $white
+        font-size: 3vw
+        line-height: 2.5vw
+        text-align: center
+
+        top: 20%
+        span
+            font-size: 2vw
+        
+    .container
+        
+        height: 43.5%
+        +center
+        
+        margin-top: 100px
+
+        .row
+            
+            height: 100%
+            .col-lg-4
+                padding: 0
+                .sec3-card
+                    width: 75%
+                    height: 100%
+                    margin: auto
+                    background-color: #324359
+                    border-radius: 5px
+                    box-shadow: 0px 3px 10px rgba(#18100D,1)
+                    padding: 10px
+                    transition: 0.5s
+                    
+                    min-height: 350px
+                    max-height: 470px
+
+
+                    &:hover
+                        transform: translate(-5%, -5%)
+                        .card-icon
+                            transform: scale(1.1)
+
+                    .card-icon
+                        height: 40%
+                        transition: 0.5s
+                        img
+                            margin-top: 10px
+                            width: 50%
+                            left: 52%
+                            top: 50%
+                            +transXY(-50%, -50%)
+
+                    .sec3-card-title
+                        height: 20%
+                        
+                        display: flex
+                        align-items: center
+                        justify-content: center
+
+                        font-size: 2vw
+                        
+                        color: $white
+
+                    .card-titleP
+                        height: 40%
+                        color: $white
+.works
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    z-index: -2
+    .sea
+        width: 100%
+        position: absolute
+        top: -138px
+        img
+            height: 100%
+
+    .works-title
+        color: $white
+        font-size: 3vw
+        line-height: 2.5vw
+        text-align: center
+        left: 50%
+        top: 20%
+        +transXY(-50%, -20%)
+        span
+            font-size: 2vw
+        
+        display: inline-block
+    
+    .container
+        width: 70%
+        top: 65%
+        +transY(-65%)
+
+        .row
+        
+            .pic-big
+                height: 460px
+                background-image: url(../img/work-page.png)
+                background-size: cover
+                background-position: 50% 50%
+
+                text-align: center
+
+                &::before
+                    content: ""
+                    position: absolute
+                    left: 0
+                    top: 0
+
+                    width: 100%
+                    height: 100%
+
+                    transition: 0.5s
+                    
+
+                &:hover
+                    .text
+                        opacity: 1
+
+                    &::before
+                        background-color: rgba(#444444,0.8)
+
+                        
+                .text
+                    // display: inline-block
+                    width: 70%
+                    +center
+
+                    color: $white
+                    font-size: 1.5vw
+                    opacity: 0
+                    transition: 0.5s
+                        
+
+                
+
+            .pic-small
+                height: 230px
+        
+        .pic-small
+            padding: 0
+            background-color: rgba(#88A8D1, .5 )
+            img
+                width: 100%
+                +center
+                
+            &::before
+                    content: ""
+                    position: absolute
+                    left: 0
+                    top: 0
+
+                    width: 100%
+                    height: 100%
+
+                    transition: 0.5s
+
+                    z-index: 1
+            &:hover
+                .text
+                    opacity: 1
+                    z-index: 5
+                &::before
+                    background-color: rgba(#444444,0.8)
+            .text
+                    
+                    width: 80%
+                    +center
+
+                    color: $white
+                    font-size: 1vw
+                    opacity: 0
+                    transition: 0.5s
+
+                    text-align: center
+
+
+//RWD
+// debug
+section
+    display: none
+.intro
+    display: block
+
+
+//servie
+// @media (min-width: 768px)
+    
+    
+

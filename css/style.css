@@ -103,12 +103,12 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 .allTitle .moblie-wraper .mobile-navbar .navContent {
   margin-top: 30px;
   margin-bottom: 0px;
-  margin-left: 5px;
+  margin-left: 3px;
   list-style: none;
   color: #FAFCFB;
   padding-left: 0px;
   font-size: 25px;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   height: 0;
   overflow: hidden;
   -webkit-transition: .5s;
@@ -326,10 +326,11 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  font-size: 4vw;
 }
 
 .rwdIntro .intro-title .sec1-title .title-button p {
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   background-color: #324359;
 }

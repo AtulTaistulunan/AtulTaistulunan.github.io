@@ -49,3 +49,10 @@ function showEle(obj){
         x.style.visibility = 'visible';
     }
 }
+
+//增加或刪除class
+function changeClass(repalceName,className){
+    var target_obj = document.getElementById(replaceName); 
+
+    target_obj.classList.toggle(className);
+}

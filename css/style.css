@@ -13,7 +13,6 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 * {
-  border: 1px solid #000;
   position: relative;
   font-family: "jf-openhuninn-1.1", "微軟正黑體";
 }
@@ -62,15 +61,20 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 .allTitle .moblie-wraper {
-  height: 100%;
+  top: 0;
+  left: 0;
   width: 100%;
+  min-height: 80px;
   background-color: #324359;
+  border: 1px solid #324359;
+  visibility: collapse;
 }
 
 .allTitle .moblie-wraper .mobile-navbar {
   height: auto;
   width: 100%;
   background-color: #324359;
+  margin-top: 20px;
 }
 
 .allTitle .moblie-wraper .mobile-navbar .navLine {
@@ -81,7 +85,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   transition: 0.3s;
   cursor: pointer;
   top: 8px;
-  margin-left: 30px;
+  margin-left: 5px;
 }
 
 .allTitle .moblie-wraper .mobile-navbar .navLine::before {
@@ -92,7 +96,6 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   position: absolute;
   left: 0;
   top: 15px;
-  border: 1px solid #000;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -100,14 +103,24 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 .allTitle .moblie-wraper .mobile-navbar .navContent {
   margin-top: 30px;
   margin-bottom: 0px;
-  margin-left: 30px;
+  margin-left: 5px;
   list-style: none;
   color: #FAFCFB;
   padding-left: 0px;
+  font-size: 25px;
+  letter-spacing: 10px;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .allTitle .moblie-wraper .mobile-navbar .navContent li {
   padding: 10px 0px;
+}
+
+.allTitle .moblie-wraper .mobile-navbar .showContent {
+  height: 200px;
 }
 
 .allTitle .sidebar-right {
@@ -256,6 +269,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 .intro .intro-title .sec1-title .sub-title .sub-line {
   width: 3.5vw;
   height: 5px;
+  display: block;
   margin-right: 1.5vw;
   background-color: #EBCC91;
 }
@@ -286,6 +300,14 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   top: 80%;
   -webkit-transform: translate(-50%, -40%);
           transform: translate(-50%, -40%);
+}
+
+.rwdIntro {
+  min-width: 100%;
+}
+
+.rwdIntro .intro-title .sec1-title .sub-title {
+  font-size: 5vw;
 }
 
 .blog {
@@ -591,7 +613,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   text-align: center;
 }
 
-section, .intro-navbar {
+section {
   display: none;
 }
 

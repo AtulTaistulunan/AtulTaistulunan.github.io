@@ -30,7 +30,7 @@ body,html
         display: none
 
 *
-    border: 1px solid #000
+    // border: 1px solid #000
     position: relative
     font-family: "jf-openhuninn-1.1", "微軟正黑體"
 
@@ -70,16 +70,27 @@ body,html
 
     // mobile
     .moblie-wraper
-        height: 100%
+        // height: atuo
+        top: 0
+        left: 0
         width: 100%
+        min-height: 80px
         background-color: $dark_blue
 
+        border: 1px solid $dark_blue //!!!!!
+        visibility: collapse
+
+        
+
+        
         .mobile-navbar
             height: auto
             width: 100%
             
-            // margin-top: 20px
+            
             background-color: $dark_blue
+            // border: 1px solid $light_yellow
+            margin-top: 20px
             .navLine
                 width: 50px
                 height: 8px
@@ -90,7 +101,7 @@ body,html
 
                 top: 8px //置中
 
-                margin-left: 30px
+                margin-left: 5px
                 &::before
                     content: ""
                     width: 50px
@@ -101,21 +112,28 @@ body,html
                     left: 0
                     top: 15px
                     
-                    border: 1px solid #000
+                    // border: 1px solid #000
                     transition: 0.3s
             .navContent
                 margin-top: 30px 
                 margin-bottom: 0px
-                margin-left: 30px
+                margin-left: 5px
 
                 list-style: none
                 color: $white
 
                 padding-left: 0px
-
+                font-size: 25px
+                letter-spacing: 10px
                 li
                     padding: 10px 0px
-            
+                
+                height: 0
+                overflow: hidden
+                transition: .5s
+            //RWD
+            .showContent
+                height: 200px 
 
     .sidebar-right
         position: fixed
@@ -241,10 +259,11 @@ body,html
                 .sub-line
                     width: 3.5vw
                     height: 5px
-
+                    display: block
                     margin-right: 1.5vw
                     // border-radius: 5px
-                    background-color: $light_yellow          
+                    background-color: $light_yellow
+                
 
             .title-button
                 margin-top: 20px
@@ -273,7 +292,12 @@ body,html
         top: 80%
         transform: translate(-50%, -40%)
 
-
+//intro RWD
+.rwdIntro
+    min-width: 100%
+    .intro-title .sec1-title .sub-title
+        font-size: 5vw
+        
 .blog
     width: 100%
     height: 100%
@@ -534,7 +558,7 @@ body,html
 
 //RWD
 // debug
-section,.intro-navbar
+section
     display: none
 
 .intro
@@ -550,6 +574,8 @@ section,.intro-navbar
         transform-origin: center
         transform: rotate(-90deg)
         width: 55px
+        
+
 
 //servie
 // @media (min-width: 768px)

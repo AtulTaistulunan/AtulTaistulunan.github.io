@@ -80,14 +80,10 @@ body,html
         border: 1px solid $dark_blue //!!!!!
         visibility: collapse
 
-        
-
-        
         .mobile-navbar
             height: auto
             width: 100%
-            
-            
+        
             background-color: $dark_blue
             // border: 1px solid $light_yellow
             margin-top: 20px
@@ -274,19 +270,13 @@ body,html
                 letter-spacing: 2px
             
             .title-button
-
+                float: right
+                cursor: pointer
                 p
-                    float: right
                     margin: 0
                     vertical-align: middle
                     letter-spacing: 2px
-                    
 
-                    
-                
-        
-        
-                
     .mouse
         +center
         top: 80%
@@ -295,8 +285,28 @@ body,html
 //intro RWD
 .rwdIntro
     min-width: 100%
+    .sec1-title
+
     .intro-title .sec1-title .sub-title
         font-size: 5vw
+        
+    .intro-title .sec1-title .big-title
+        font-size: 7vw
+        text-align: center
+
+    .intro-title .sec1-title .title-button
+        float: none
+        text-align: center
+        display: inline-block
+
+        left: 50%
+        +transX(-50%)
+        p
+            padding: 5px
+            border-radius: 5px
+            background-color: $dark_blue
+
+        
         
 .blog
     width: 100%

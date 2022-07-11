@@ -284,8 +284,12 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   letter-spacing: 2px;
 }
 
-.intro .intro-title .sec1-title .title-button p {
+.intro .intro-title .sec1-title .title-button {
   float: right;
+  cursor: pointer;
+}
+
+.intro .intro-title .sec1-title .title-button p {
   margin: 0;
   vertical-align: middle;
   letter-spacing: 2px;
@@ -308,6 +312,26 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 
 .rwdIntro .intro-title .sec1-title .sub-title {
   font-size: 5vw;
+}
+
+.rwdIntro .intro-title .sec1-title .big-title {
+  font-size: 7vw;
+  text-align: center;
+}
+
+.rwdIntro .intro-title .sec1-title .title-button {
+  float: none;
+  text-align: center;
+  display: inline-block;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.rwdIntro .intro-title .sec1-title .title-button p {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #324359;
 }
 
 .blog {

@@ -16,6 +16,7 @@
 $white: #FAFCFB
 $dark_brown: #18100D
 $dark_blue: #324359
+$dark_bg_blue: #3D536B
 $light_yellow: #EBCC91
 
 
@@ -40,10 +41,10 @@ body,html
     height: 100%
     position: fixed
     z-index: 10
+    
 
     .intro-navbar
         // width: calc( 100% -  15.6%)
-        
         height: 50px
         background-color: transparent
         
@@ -51,7 +52,7 @@ body,html
         top: 40px
         left: 50%
         +transX(-50%)
-            
+        
             
         .logo, .aboutUs, .contactUs
             display: inline-block
@@ -79,11 +80,13 @@ body,html
 
         border: 1px solid $dark_blue //!!!!!
         visibility: collapse
-
+        position: fixed
+        left: 0
+        top: 0
         .mobile-navbar
             height: auto
             width: 100%
-        
+            
             background-color: $dark_blue
             // border: 1px solid $light_yellow
             margin-top: 20px
@@ -346,6 +349,7 @@ body,html
                 top: 50%
                 left: 50%
                 +transXY(-50%, -50%)
+                cursor: pointer
                 
             .sec2-title
                 color: $white
@@ -373,7 +377,24 @@ body,html
 
                 .sec2-button
                     color: $light_yellow
+                    a
+                        text-decoration: none
+                        color: $light_yellow
+                    
+//blog RWD
+.rwdBlog
+    .container .row .sec2-title
+        margin-bottom: 100px
+        
+        .title
+            font-size: 7vw
+            text-align: center
+        .sec2-subtitle
+            font-size: 4vw
+            text-align: center
 
+    .container .row .blogImg
+        margin-top: -200px
 // service----------------------
 
 .service
@@ -453,16 +474,119 @@ body,html
                     .card-titleP
                         height: 40%
                         color: $white
+//service RWD(tablet)
+.rwdtbService
+    height: auto
+    .service-title
+        font-size: 5vw
+        top: 125px
+        span
+            display: block
+            margin-top: 20px
+            font-size: 3vw
+    .container
+        height: auto
+        position: relative
+        left: auto
+        top: auto
+        transform: none
+        margin-top: 0
+        margin-top: 150px
+        .row
+            height: auto
+        .row .col-md-12
+            margin-top: 15px
+        .row .col-md-12 .sec3-card
+            max-height: none
+            min-height: 0
+            height: auto
+            width: 50%
+            
+
+            .card-icon
+                top: 0
+                height: auto
+                margin-bottom: 10px
+                img
+                    top: 0
+                    +transX(-50%)
+            .sec3-card-title
+                height: auto
+                font-size: 4vw
+            .card-titleP
+                height: auto
+                text-align: center
+
+// service RWD(mobile)
+.rwdService 
+    height: 100%
+    
+    *
+        // border: 1px solid #000
+    .service-title
+        font-size: 7vw
+        span
+            display: block
+            margin-top: 20px
+            
+        // margin-top: -50px
+        position: absolute
+        writing-mode: vertical-lr
+        left: 7%
+        top: 50%
+        +transXY(-7%,-50%)
+        letter-spacing: 10px
+        line-height: normal
+        white-space: nowrap
+    .container
+        margin-top: 0px
+        height: auto
+        
+        .row
+            height: auto
+        .row .col-md-12
+            margin-top: 15px
+        .row .col-md-12 .sec3-card
+            max-height: none
+            min-height: 0
+            width: 50%
+            height: auto
+            
+
+            .card-icon
+                top: 0
+                height: auto
+                margin-bottom: 10px
+                img
+                    top: 0
+                    +transX(-50%)
+            .sec3-card-title
+
+                font-size: 4vw
+            .card-titleP
+                
+                text-align: center
+    #smallsea
+        position: absolute
+        bottom: 0
+        left: 0
+        z-index: -5
+
+        vertical-align: baseline
+
+
 .works
     width: 100%
     height: 100%
     left: 0
     top: 0
     z-index: -2
+
+    
     .sea
         width: 100%
         position: absolute
-        top: -138px
+        top: -160px
         img
             height: 100%
 
@@ -529,12 +653,13 @@ body,html
 
             .pic-small
                 height: 230px
+                overflow: hidden
         
         .pic-small
             padding: 0
             background-color: rgba(#88A8D1, .5 )
             img
-                width: 100%
+                height: 100%
                 +center
                 
             &::before
@@ -566,15 +691,49 @@ body,html
                     transition: 0.5s
 
                     text-align: center
+// works RWD(mobile)
+.rwdworks
+    height: auto
+    background-color: $dark_bg_blue
+    overflow: hidden
+    .sea
+        width: auto
+        bottom: 0px
+        margin-top: 75px
+    .works-title
+        font-size: 7vw
+        span
+            display: block
+            margin-top: 20px
+            
+        margin-top: -50px
+        position: absolute
+        writing-mode: vertical-lr 
+        left: 7%
+        top: 50%
+        +transXY(-7%,-50%)
+        letter-spacing: 10px
 
-
+    .container
+        top: 0
+        transform: none
+        .row
+            
+    .container .row .pic-big
+        height: 230px
+        margin-top: 100px
+        margin-bottom: 15px
+    .container .row .pic-small
+        margin-bottom: 15px
 //RWD
 // debug
-section
-    display: none
+// section,.allTitle
+//     display: none
 
-.intro
-    display: block
+// .service
+//     display: block
+
+
 
 //手機版選單被點擊事件
 .mobileNavClick

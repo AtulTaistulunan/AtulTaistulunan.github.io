@@ -12,46 +12,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="allTitle">
-        <!-- 上方選單列 -->
-        <div class="intro-navbar" name="web">
-            <div class="logo">我是LOGO</div>
-            <div class="aboutUs">關於我們</div>
-            <div class="contactUs">聯絡我們</div>
-        </div>
-        <!-- RWD調整 -->
-        <div class="moblie-wraper" name="mobile">
-            <div class="mobile-navbar">
-                <div class="navLine" id="navLine" ></div>
-                <ul class="navContent" id="navContent">
-                    <li>我是LOGO</li>
-                    <li>關於我們</li>
-                    <li>聯絡我們</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- 左右選單 -->
-        <div class="sidebar-left" name="web">
-            <div class="followus">追蹤我們</div>
-            <i class="fa-brands fa-facebook-f"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-youtube"></i>
-        </div>
-        <div class="sidebar-right" name="web">
-            <ul>
-                <li>首頁</li>
-                <li>紀錄</li>
-                <li>服務</li>
-                <li>作品</li>
-            </ul>
-            <div class="sidebar-line">
-                
-            </div>
-        </div>
-    </div>
     
-    <section class="intro rwdIntro">
+    
+    <section class="intro" id="intro">
         <div class="intro-title">
             <div class="sec1-title">
                 <div class="sub-title">
@@ -90,28 +53,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 sec2-title">
-                    <div class="title">踏進山林<br>挖掘被遺忘的生活</div>
-                    <p class="sec2-subtitle">關門古道西起南投集集，東至花蓮瑞穗，原名為「集集、水尾道路」，乃因通過關門山，現在以關門古道稱之，是清代末期所留下的兩條橫貫中央山脈中部「開山撫番」道路之一，另外一條為「清八通關古道」。此條古道通過布農族卡社群（包括塔馬羅灣社、巴庫拉斯社、卡社與拉夫郎社）與丹社群（包括加年端社、帖鹿桑社與哈巴昂社）等舊社，亦是溝通丹社群與其它社群（巒社群與卡社群）的重要道路。~摘自《孤獨星球》國際中文版</p>
-                    <div class="sec2-button">
-                        <p>閱讀更多
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </p>
+                    <div class="title" id="sec2Title">踏進山林<br>挖掘被遺忘的生活</div>
+                    <p class="sec2-subtitle">經過大分事件後的集團移住政策，丹社群被迫遷往東部移動，有族人試圖遷回asang(舊部落)，但最終還是被舊部落駐警所驅趕走。
+                        又經過超過半個世紀，後代族人對於關門古道或說回asang的路，早已忘得一乾二淨，僅有幾個獵人還依稀知道路徑。
+                    </p>
+                    <div class="sec2-button" name="web">
+                        <a href="https://atultaistulunan.github.io/Atul_SchoolProject/">
+                            <p>閱讀更多
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </p>
+                        </a>
+                        
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 ">
-                    <img src="img/sec-2-blog.png" class="sec2-img">
+                <div class="col-sm-12 col-md-6 blogImg">
+                    <img src="img/sec-2-blog.png" class="sec2-img" id="sec2Img">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="service">
-        <div class="service-title">
+    <section class="service" id="service">
+        <div class="service-title" id="se3-title">
             服務項目<br><span>Service</span>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-lg-4">
+                <div class="col-md-12 col-lg-4 ">
                     <div class="sec3-card">
                         <div class="card-icon">
                             <img src="img/workLogo1.png">
@@ -140,13 +108,14 @@
                 </div>
             </div>
         </div>
+        <img src="img/smallsea.png" id="smallsea" name="mobile">
     </section>
     
-    <section class="works">
+    <section class="works" id="works">
         <div class="sea">
             <img src="img/sea.png">
         </div>
-        <div class="works-title">
+        <div class="works-title" id="works-title">
             作品集<br><span>Works</span>
         </div>
         <div class="container">
@@ -192,7 +161,45 @@
             </div>
         </div>
     </section>
-
+    
+    <div class="allTitle">
+        <!-- 上方選單列 -->
+        <div class="intro-navbar" name="web">
+            <div class="logo">我是LOGO</div>
+            <div class="aboutUs">關於我們</div>
+            <div class="contactUs">聯絡我們</div>
+        </div>
+        <!-- RWD調整 -->
+        <div class="moblie-wraper" name="mobile">
+            <div class="mobile-navbar">
+                <div class="navLine" id="navLine" ></div>
+                <ul class="navContent" id="navContent">
+                    <li>我是LOGO</li>
+                    <li>關於我們</li>
+                    <li>聯絡我們</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 左右選單 -->
+        <div class="sidebar-left" name="web">
+            <div class="followus">追蹤我們</div>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+        </div>
+        <div class="sidebar-right" name="web">
+            <ul>
+                <li>首頁</li>
+                <li>紀錄</li>
+                <li>服務</li>
+                <li>作品</li>
+            </ul>
+            <div class="sidebar-line">
+                
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>

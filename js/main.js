@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded',function(){
 
     resizeScreen(windowWidth);
 
+    //sec3blog限制字的行數
+    var module = document.querySelector(".sec2-subtitle");
+    $clamp(module, {clamp: 3});
+    //
+    
     window.addEventListener('resize',function(){
         windowWidth = window.innerWidth;
         resizeScreen(windowWidth);

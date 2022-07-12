@@ -396,10 +396,6 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 .blog .container .row .sec2-title .sec2-subtitle {
   text-indent: 2rem;
   line-height: 1.6rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   margin-bottom: 2vw;
 }
 

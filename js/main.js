@@ -8,12 +8,32 @@ document.addEventListener('DOMContentLoaded',function(){
         this.classList.toggle('mobileNavClick');
         showContent.classList.toggle('showContent');
     });
+
     //sec2Img被點擊
     var s2Img = document.getElementById('sec2Img');
     
     s2Img.addEventListener('click',function(){
         location.href = "https://atultaistulunan.github.io/Atul_SchoolProject/";
     });
+
+    //barClick被點擊
+    var barClick = document.querySelectorAll('.barClick');
+
+    for(var i = 0;i < barClick.length ; i++){
+        var x = barClick[i];
+
+        x.addEventListener('click',function(){
+            location.href = 'https://www.facebook.com/sinqaningu';
+        });
+    }
+
+    //gohome回首頁
+    var gohome = document.querySelector('.goHome');
+
+    gohome.addEventListener('click', function(){
+        window.scrollTop = 0;
+    });
+
 });
 
 //手機版隱藏區
@@ -32,6 +52,54 @@ document.addEventListener('DOMContentLoaded',function(){
         windowWidth = window.innerWidth;
         resizeScreen(windowWidth);
     });
+});
+
+//取消滾動事件
+var allScroll =  document.querySelector('.allScroll');
+
+let timer;
+allScroll.addEventListener('wheel',function(e){
+
+        e.preventDefault();
+
+        //判斷scroolUp或scrollDown
+        var y = e.deltaY;
+        
+        let context = this;
+        let args = arguments;
+        console.log(this);
+        clearTimeout(timer);
+        clearAnimate(now_sec_index);
+        timer = setTimeout(function() {
+            pageMove.apply(context, args);
+        }, 1000);
+});
+
+window.addEventListener('keydown',function(e){
+    if(e.key == 'ArrowDown' || e.key == 'ArrowUp'){
+        e.preventDefault();
+    }
+});
+
+//滑鼠
+const cursor = document.querySelector('.cursor');
+var cursorinner = document.querySelector('.cursor2');
+
+document.addEventListener('mousemove', function(e){
+    var x = e.clientX;
+    var y = e.clientY;
+    cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+    cursorinner.style.left = x + 'px';
+    cursorinner.style.top = y + 'px';
+});
+
+
+document.addEventListener('mousedown', function(){
+    cursorinner.classList.add('cursorinnerhover');
+});
+
+document.addEventListener('mouseup', function(){
+    cursorinner.classList.remove('cursorinnerhover');
 });
 
 //**** 函式區 ****//
@@ -138,3 +206,144 @@ function changeHTML(target_Obj, replaceHTML){
     var x = document.getElementById(target_Obj);
     x.innerHTML = replaceHTML;
 }
+
+//防抖
+//allScroll
+var now_child_top = 0;
+var is_First_Time = true;
+var now_sec_index = 0;
+//放各section的offsetTop
+var arychilds = [];
+//放各section的name
+var childnames = [];
+
+
+function pageMove(e){
+    //取得section
+    var childsconunt = allScroll.childNodes;
+    
+    //判斷滾上或滾下
+    var y = e.deltaY;
+
+    //存取section的name、offsetTop
+    if(is_First_Time){
+        
+        for(var i=0; i< childsconunt.length;i++){
+            var repNode = childsconunt[i];
+            if(repNode.nodeType == 1){
+                var elmTop = repNode.offsetTop;
+                var getName = repNode.getAttribute('id');
+    
+                arychilds.push(elmTop);
+                childnames.push(getName);
+            }
+        }
+        is_First_Time = false;
+    }
+
+    // 判斷上下
+    //向下
+    if(y >=0){
+        for(var j=0; j< arychilds.length ; j++){
+            if(now_child_top < arychilds[j]){
+                // allScroll.scrollTop = arychilds[j];
+                var getSecName = document.getElementById(childnames[j]);
+    
+                now_child_top = arychilds[j];
+                now_sec_index = j ;
+
+                getSecName.style = "transition: 1s;";
+                getSecName.style.top = -now_child_top + 'px';
+            
+                detAnimete(now_sec_index);
+                break;
+
+            }   
+        }
+    }else{
+        // 回到自己的位置
+        
+        var new_child_top = now_sec_index-1;
+        var new_sec_index = now_sec_index-1;
+
+        if(new_child_top<0){new_child_top = 0;}
+        if(new_sec_index<0){new_sec_index = 0;}
+        
+        var getSecName = document.getElementById(childnames[now_sec_index]);
+
+        getSecName.style = "transition: 2.5s;";
+        getSecName.style.top = now_child_top + 'px';
+
+        now_child_top = arychilds[new_child_top];
+        now_sec_index = new_sec_index;    
+        
+        detAnimete(now_sec_index);
+    }
+}
+
+//section動畫
+function detAnimete(now_sec_index){
+    var repCaseName; 
+    switch(now_sec_index){
+        case 0:
+            repCaseName = document.getElementsByName('caseZero');
+            for(var i = 0 ; i < repCaseName.length ;i++){
+                repCaseName[i].classList.add("animate__animated","animate__backInLeft");
+            }
+            break;
+        case 1:
+            repCaseName = document.getElementsByName('caseOne');
+            for(var i = 0 ; i < repCaseName.length ;i++){
+                repCaseName[i].classList.add("animate__animated","animate__backInLeft");
+            }
+            
+            break;
+        case 2:
+            repCaseName = document.getElementsByName('caseTwo');
+            for(var i = 0 ; i < repCaseName.length ;i++){
+                repCaseName[i].classList.add("animate__animated","animate__zoomIn");
+            }
+            break;
+        case 3: 
+            repCaseName = document.getElementsByName('caseThree');
+            for(var i = 0 ; i < repCaseName.length ;i++){
+                repCaseName[i].classList.add("animate__animated","animate__zoomInLeft");
+            }
+            break;
+    }
+}
+    
+
+//移除動畫
+function clearAnimate(now_sec_index){
+    var repCaseName; 
+    switch(now_sec_index){
+        case 0:
+            repCaseName = document.getElementsByName('caseZero');
+            for(var i = 0 ; i < repCaseName.length ;i++){
+                repCaseName[i].classList.remove("animate__animated","animate__backInLeft");
+            }
+            break;
+        case 1:
+            repCaseName = document.getElementsByName('caseOne');
+            for(var i = 0 ; i < repCaseName.length ;i++){
+                repCaseName[i].classList.remove("animate__animated","animate__backInLeft");
+            }
+            
+            break;
+        case 2:
+            repCaseName = document.getElementsByName('caseTwo');
+            for(var i = 0 ; i < repCaseName.length ;i++){
+                repCaseName[i].classList.remove("animate__animated","animate__zoomIn");
+            }
+            break;
+        case 3: 
+            repCaseName = document.getElementsByName('caseThree');
+            for(var i = 0 ; i < repCaseName.length ;i++){
+                repCaseName[i].classList.remove("animate__animated","animate__zoomInLeft");
+            }
+            break;
+    }
+}
+
+

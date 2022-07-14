@@ -27,8 +27,9 @@ body,html
     height: 100vh
     overflow-x: hidden
     z-index: -55
-    &::-webkit-scrollbar
-        display: none
+    cursor: none
+    // &::-webkit-scrollbar
+    //     display: none
 
 *
     // border: 1px solid #000
@@ -40,7 +41,7 @@ body,html
     width: 100%
     height: 100%
     position: fixed
-    z-index: 10
+    // z-index: 10
     
 
     .intro-navbar
@@ -219,6 +220,8 @@ body,html
     background-size: cover
     background-position: 50% 50%
 
+    top: 0
+
     &:before
         content: ""
         position: absolute
@@ -316,11 +319,13 @@ body,html
 .blog
     width: 100%
     height: 100%
-    z-index: -5
+    // z-index: -5
     
     background-color: $dark_brown
     background-image: url('../img/sec-2.png')
     background-size: cover
+
+    top: 0
     
     .container
         width: 100%
@@ -402,10 +407,7 @@ body,html
     background-image: url('../img/sec-works.png')
     background-size: cover
 
-    z-index: -10
-
-    
-
+    top: 0
     .service-title
         color: $white
         font-size: 3vw
@@ -577,7 +579,7 @@ body,html
     height: 100%
     left: 0
     top: 0
-    z-index: -2
+    
 
     
     .sea
@@ -764,3 +766,50 @@ body,html
     // bar
     .intro-navbar
         width: 100% 
+
+.barClick
+    cursor: pointer
+
+.allScroll
+    width: 100vw
+    height: 100vh
+
+    overflow: hidden
+    // overflow-y: scroll
+
+    top: 0px
+        
+
+section
+    transition-timing-function: ease-in
+
+.cursor
+    width: 50px
+    height: 50px
+    border: 1px solid $white
+    border-radius: 50%
+    transition: all 200ms ease-out
+    position: fixed
+    
+    position: fixed
+    pointer-events: none
+    left: 0
+    top: 0
+    transition-timing-function: ease-out
+.cursor2
+    width: 20px
+    height: 20px
+    border-radius: 100%
+    background-color: black
+    opacity: .3
+    position: fixed
+    transform: translate(-50%, -50%)
+    pointer-events: none
+    transition: width .3s, height .3s, opacity .3s
+
+.cursorinnerhover
+    width: 50px
+    height: 50px
+    opacity: .5
+
+    

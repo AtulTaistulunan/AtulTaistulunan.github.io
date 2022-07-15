@@ -39,7 +39,7 @@
                     <g id="滑鼠" transform="translate(-913 -796)">
                         <path id="Subtraction_1" data-name="Subtraction 1" d="M-1976.5,121a11.426,11.426,0,0,1-8.132-3.368A11.424,11.424,0,0,1-1988,109.5v-12a11.424,11.424,0,0,1,3.368-8.131A11.426,11.426,0,0,1-1976.5,86a11.426,11.426,0,0,1,8.132,3.368A11.424,11.424,0,0,1-1965,97.5v12a11.424,11.424,0,0,1-3.368,8.131A11.426,11.426,0,0,1-1976.5,121Zm0-32a8.51,8.51,0,0,0-8.5,8.5v12a8.51,8.51,0,0,0,8.5,8.5,8.509,8.509,0,0,0,8.5-8.5v-12A8.509,8.509,0,0,0-1976.5,89Z" transform="translate(2901 710)" fill="#fff"/>
                         <rect id="Rectangle_8" data-name="Rectangle 8" width="3" height="5" rx="1" transform="translate(923 804)" fill="#fff"/>
-                        <g id="箭頭" transform="translate(-35.5 -84)">
+                        <g id="arrow" transform="translate(-35.5 -84)">
                             <g id="Group_1" data-name="Group 1" transform="translate(-139 -5.755)">
                                 <path id="Union_1" data-name="Union 1" d="M148.912,101.788l-7.473-7.473a1.5,1.5,0,1,1,2.121-2.121l6.412,6.412,6.412-6.412a1.5,1.5,0,0,1,2.121,2.121l-7.473,7.473a1.5,1.5,0,0,1-2.121,0Z" transform="translate(949.5 833.527)" fill="#fff"/>
                             </g>
@@ -57,9 +57,11 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-6 sec2-title" name="caseOne">
                         <div class="title" id="sec2Title" >踏進山林<br>挖掘被遺忘的生活</div>
-                        <p class="sec2-subtitle" id="sec2-subtitle" >經過大分事件後的集團移住政策，丹社群被迫遷往東部移動，有族人試圖遷回asang(舊部落)，但最終還是被舊部落駐警所驅趕走。
-                            又經過超過半個世紀，後代族人對於關門古道或說回asang的路，早已忘得一乾二淨，僅有幾個獵人還依稀知道路徑。
-                        </p>
+                        <div class="parent">
+                            <p class="sec2-subtitle" id="sec2-subtitle" >經過大分事件後的集團移住政策，丹社群被迫遷往東部移動，有族人試圖遷回asang(舊部落)，但最終還是被舊部落駐警所驅趕走。
+                                又經過超過半個世紀，後代族人對於關門古道或說回asang的路，早已忘得一乾二淨，僅有幾個獵人還依稀知道路徑。
+                            </p>
+                        </div>
                         <div class="sec2-button" name="web caseOne">
                             <a href="https://atultaistulunan.github.io/Atul_SchoolProject/">
                                 <p>閱讀更多
@@ -125,7 +127,7 @@
                 <div class="row" name="caseThree">
                     <div class="col-md-6 pic-big">
                         <div class="text">
-                            從關門古道到Taisnunan家屋命名研究<br>
+                            從關門古道到Taisnunan家屋<br>
                             網頁設計
                         </div>
                     </div>
@@ -173,7 +175,7 @@
         
         <!-- 上方選單列 -->
         <div class="intro-navbar" name="web">
-            <div class="logo goHome">我是LOGO</div>
+            <div class="logo"><img src="img/Logo.png" class="icon"></div>
             <div class="aboutUs barClick">關於我們</div>
             <div class="contactUs barClick">聯絡我們</div>
         </div>
@@ -182,7 +184,7 @@
             <div class="mobile-navbar">
                 <div class="navLine" id="navLine" ></div>
                 <ul class="navContent" id="navContent">
-                    <li>我是LOGO</li>
+                    <li class="goHome"><img src="img/Logo.png" class="icon"></li>
                     <li class="barClick">關於我們</li>
                     <li class="barClick">聯絡我們</li>
                 </ul>
@@ -197,14 +199,14 @@
             <i class="fa-brands fa-youtube"></i>
         </div>
         <div class="sidebar-right" name="web">
-            <ul>
-                <li>首頁</li>
-                <li>紀錄</li>
-                <li>服務</li>
-                <li>作品</li>
+            <ul id="detRight">
+                <li class="now_sec RClick" data-number="0">首頁</li>
+                <li class="RClick"  data-number="1">紀錄</li>
+                <li class="RClick"  data-number="2">服務</li>
+                <li class="RClick"  data-number="3">作品</li>
             </ul>
-            <div class="sidebar-line">
-                
+            <div class="sidebar-line" id="sidebar-line">
+                <div class="innerSidebar"></div>
             </div>
         </div>
     </div>

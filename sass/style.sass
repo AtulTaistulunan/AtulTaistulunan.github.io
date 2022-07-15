@@ -64,7 +64,10 @@ body,html
             font-size: 20px
 
         .logo
-            left: 0
+            // border: 1px solid #000
+            // img
+            //     width: 150px
+
         .aboutUs
             +center
         .contactUs
@@ -151,15 +154,20 @@ body,html
             display: inline-block
             
             li
-                width: 45px
+                width: 60px
                 font-size: 20px
                 list-style: none
                 color: $white
                 margin-bottom: 15px
                 text-align: center
 
+                transition: .7s
+
             li:nth-child(4)
                 margin-bottom: 0 //移除最後一個li的margin-bottom
+            .now_sec
+                font-size: 25px
+                font-weight: 500 
 
         .sidebar-line
             width: 180px
@@ -171,18 +179,23 @@ body,html
 
             position: absolute
 
-            &:before
-                content: ""
-                
+            transition: .3s
+            
+            .innerSidebar
                 position: absolute
                 left: 0
                 top: 0
 
-                width: 100px
+                width: calc(100%/4)
                 height: 5px
                 
                 background-color: $white
                 border-radius: 5px
+
+                transition: 1s
+                
+        
+            
 
     .sidebar-left
         color: $white
@@ -359,7 +372,7 @@ body,html
                 left: 50%
                 +transXY(-50%, -50%)
                 cursor: pointer
-                
+            
             .sec2-title
                 color: $white
                 margin: auto
@@ -377,15 +390,24 @@ body,html
                 .sec2-subtitle
                     text-indent: 2rem
                     line-height: 1.6rem
-
+                    margin-bottom: 0
                     
-                    margin-bottom: 2vw
+                    // margin-bottom: 2vw
 
                 .sec2-button
                     color: $light_yellow
                     a
                         text-decoration: none
                         color: $light_yellow
+                .parent
+                    display: -webkit-box
+                    -webkit-box-orient: vertical
+                    -webkit-line-clamp: 3
+                    overflow: hidden
+
+                    margin-bottom: 2vw
+                    
+
                     
 //blog RWD
 .rwdBlog
@@ -720,14 +742,17 @@ body,html
     .container
         top: 0
         transform: none
-        .row
-            
+        .row .text
+            font-size: 20px
     .container .row .pic-big
         height: 230px
         margin-top: 100px
         margin-bottom: 15px
+        .text
+            font-size: 20px
     .container .row .pic-small
         margin-bottom: 15px
+
 //RWD
 // debug
 // section,.allTitle
@@ -750,7 +775,9 @@ body,html
         width: 55px
         
 
-
+//icon
+.icon
+    width: 200px
 //servie
 // @media (min-width: 768px)
 
@@ -816,4 +843,3 @@ section
     height: 50px
     opacity: .5
 
-    

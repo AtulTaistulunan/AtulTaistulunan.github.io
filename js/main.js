@@ -1,5 +1,5 @@
 //點擊事件區
-document.addEventListener('DOMContentLoaded',function(){
+window.addEventListener('load',function(){
     //手機版選單被點擊
     var mobileNav = document.getElementById('navLine');
     var showContent = document.getElementById('navContent');
@@ -37,15 +37,15 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 //手機版隱藏區
-document.addEventListener('DOMContentLoaded',function(){
+window.addEventListener('load',function(){
     
     var windowWidth = window.innerWidth;
 
     resizeScreen(windowWidth);
 
     //sec3blog限制字的行數
-    var module = document.querySelector(".sec2-subtitle");
-    $clamp(module, {clamp: 3});
+    // var module = document.querySelector(".sec2-subtitle");
+    // $clamp(module, {clamp: 3});
     //
     
     window.addEventListener('resize',function(){
@@ -77,8 +77,19 @@ document.addEventListener('mouseup', function(){
     cursorinner.classList.remove('cursorinnerhover');
 });
 
+window.addEventListener('load',function(){
+    anime({
+        targets: '.mouse',
+        translateY: 15,
+        direction: 'alternate',
+        loop: true,
+        easing: 'easeInOutQuad'
+    });
+});
+
 //滾動事件
 var allScroll =  document.querySelector('.allScroll');
+
 //**** 函式區 ****//
 
 function resizeScreen(windowWidth) {
@@ -112,7 +123,11 @@ function resizeScreen(windowWidth) {
         //** sec4 **
         changeHTML('works-title','作品集Works');
 
-        
+        //鼠標隱藏
+        hideMouse();
+
+        //顯示scroll
+        allScroll.style = 'overflow-y: scroll;';
     }else if(windowWidth >= 768 && windowWidth <= 992){
         //顯示網頁
         showEle(objWeb)
@@ -127,6 +142,19 @@ function resizeScreen(windowWidth) {
         //**sec4**
         changeHTML('works-title','作品集<br><span>Works</span>');
         removeClass('works', 'rwdworks');
+
+        //鼠標隱藏
+        hideMouse();
+        
+        //顯示scroll
+        allScroll.style = 'overflow-y: scroll;';
+
+        //sidebar-right
+        allScroll.addEventListener('scroll',checkBoxes);
+        checkBoxes();
+        //sidebar-right click (tablet)
+        allScroll.style = 'scroll-behavior: smooth;';
+        sideRightClick();
 
     }else{
         // 網頁版
@@ -149,9 +177,11 @@ function resizeScreen(windowWidth) {
         //**sec4 **
         changeHTML('works-title','作品集<br><span>Works</span>');
         removeClass('works', 'rwdworks');
-
+        //記下每個sec的offsetTop
+        setSecTop();
         //取消滾動事件
         let timer;
+        
         allScroll.addEventListener('wheel',function(e){
 
             e.preventDefault();
@@ -167,6 +197,8 @@ function resizeScreen(windowWidth) {
             timer = setTimeout(function() {
                 pageMove.apply(context, args);
             }, 1000);
+
+            
         });
 
         window.addEventListener('keydown',function(e){
@@ -174,6 +206,12 @@ function resizeScreen(windowWidth) {
                 e.preventDefault();
             }
         });
+
+        //隱藏scrollbar
+        allScroll.style = 'overflow-y: hidden;';
+
+        //sidebar-right click
+        // sideRightClickWeb();
     }
 }
 
@@ -221,27 +259,9 @@ var childnames = [];
 
 
 function pageMove(e){
-    //取得section
-    var childsconunt = allScroll.childNodes;
     
     //判斷滾上或滾下
     var y = e.deltaY;
-
-    //存取section的name、offsetTop
-    if(is_First_Time){
-        
-        for(var i=0; i< childsconunt.length;i++){
-            var repNode = childsconunt[i];
-            if(repNode.nodeType == 1){
-                var elmTop = repNode.offsetTop;
-                var getName = repNode.getAttribute('id');
-    
-                arychilds.push(elmTop);
-                childnames.push(getName);
-            }
-        }
-        is_First_Time = false;
-    }
 
     // 判斷上下
     //向下
@@ -281,6 +301,9 @@ function pageMove(e){
         
         detAnimete(now_sec_index);
     }
+
+    //sidebar-right
+    detSideBar(now_sec_index);
 }
 
 //section動畫
@@ -348,4 +371,155 @@ function clearAnimate(now_sec_index){
     }
 }
 
+//鼠標隱藏
+function hideMouse(){
+    var x = document.querySelector('.cursor');
+    var y = document.querySelector('.cursor2');
 
+    x.style = 'display: none;';
+    y.style = 'display: none;';    
+}
+
+//sidebar right
+function detSideBar(now_index){
+    var detUl= document.getElementById('detRight');
+    var detAllli = detUl.childNodes;
+    var aryLi = [];
+
+    for(var i=0 ; i < detAllli.length ;i++){
+        if(detAllli[i].nodeType == 1){
+            aryLi.push(detAllli[i]);
+        }
+    }
+
+    for(var j=0 ; j < aryLi.length; j++){
+        if(j == now_sec_index){
+            var targetL = aryLi[now_sec_index];
+            targetL.classList.add('now_sec');
+        }else{
+            aryLi[j].classList.remove('now_sec');
+        }
+    }
+    
+    //更改 sidebarLine
+    var sidebar = document.querySelector('.innerSidebar');
+    switch (now_sec_index + 1) {
+        case 1:
+            sidebar.style = "width: calc(100%/4*1);";
+            break;
+        case 2:
+            sidebar.style = "width: calc(100%/4*2);";
+            break;
+        case 3:
+            sidebar.style = "width: calc(100%/4*3);";
+            break;
+        case 4:
+            sidebar.style = "width: calc(100%/4*4);";
+            break;
+    }
+}
+
+//tablet sidebar
+function checkBoxes(){
+    
+    var numb = 0;
+    var target_li = [];
+    var sec_scrolltop = [];
+
+    var allSection = document.querySelectorAll('section');
+    var target_ul = document.getElementById('detRight');
+    var sidebar = document.querySelector('.innerSidebar');
+    
+    for(var i = 0 ; i < target_ul.childNodes.length ;i++){
+        var li = target_ul.childNodes[i];
+
+        if(li.nodeType == 1){
+            target_li.push(li);
+        }
+    }
+
+    allSection.forEach(sec=>{
+        const boxTop = sec.getBoundingClientRect().top + sec.getBoundingClientRect().height / 2;
+        const winTop = window.innerHeight ;
+
+        if(boxTop < winTop && boxTop >=0){
+            target_li[numb].classList.add('now_sec');
+            
+            sidebar.style.width = "calc(100% / 4*"+(numb+1)+")";
+        }else{
+            target_li[numb].classList.remove('now_sec');
+        }
+        sec_scrolltop.push(sec.offsetTop);
+        numb++;
+    });
+}
+
+//sidebar right Click
+function sideRightClick(){
+    var allSection = document.querySelectorAll('section');
+    var sec_scrolltop = [];
+    var target_ul = document.querySelectorAll('.RClick');
+    //放入各sec的top
+    allSection.forEach(sec=>{
+        sec_scrolltop.push(sec.offsetTop); 
+    });
+    //偵測哪一個sec
+    target_ul.forEach(li=>{
+        li.addEventListener('click',function(){
+            allScroll.scrollTop = sec_scrolltop[this.dataset.number];
+        });
+    });
+}
+
+//設置每個sec的offsetTop
+function setSecTop(){
+    //取得section
+    var childsconunt = allScroll.childNodes;
+    
+    //存取section的name、offsetTop
+    if(is_First_Time){
+        
+        for(var i=0; i< childsconunt.length;i++){
+            var repNode = childsconunt[i];
+            if(repNode.nodeType == 1){
+                var elmTop = repNode.offsetTop;
+                var getName = repNode.getAttribute('id');
+                
+                arychilds.push(elmTop);
+                childnames.push(getName);
+            }
+        }
+        is_First_Time = false;
+    }
+    
+}
+
+// //sidebar right click WRB
+// function sideRightClickWeb (){
+//     var target_ul = document.querySelectorAll('.RClick');
+    
+//     //偵測哪一個sec
+//     target_ul.forEach(li=>{
+//         li.addEventListener('click',function(){
+//             var number = parseInt(this.dataset.number);
+            
+//             for(var i = number ; i < 4 ;i++){
+//                 var Sec = document.getElementById(childnames[i]); 
+
+//                 if(i==number){
+//                     Sec.style = "transition: 2.5s;";
+//                     Sec.style.top = -arychilds[i] + 'px';
+                    
+//                     now_child_top = arychilds[i];
+
+//                 }else{
+//                     Sec.style = "transition: 2.5s;";
+//                     Sec.style.top = arychilds[i] + 'px';
+//                 }
+            
+//                 // console.log(i);
+            
+//             }
+//         });
+//     });
+// }

@@ -40,10 +40,6 @@ body, html {
   font-size: 20px;
 }
 
-.allTitle .intro-navbar .logo {
-  left: 0;
-}
-
 .allTitle .intro-navbar .aboutUs {
   position: absolute;
   left: 50%;
@@ -143,16 +139,23 @@ body, html {
 }
 
 .allTitle .sidebar-right ul li {
-  width: 45px;
+  width: 60px;
   font-size: 20px;
   list-style: none;
   color: #FAFCFB;
   margin-bottom: 15px;
   text-align: center;
+  -webkit-transition: .7s;
+  transition: .7s;
 }
 
 .allTitle .sidebar-right ul li:nth-child(4) {
   margin-bottom: 0;
+}
+
+.allTitle .sidebar-right ul .now_sec {
+  font-size: 25px;
+  font-weight: 500;
 }
 
 .allTitle .sidebar-right .sidebar-line {
@@ -164,17 +167,20 @@ body, html {
   left: -25px;
   border-radius: 5px;
   position: absolute;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
-.allTitle .sidebar-right .sidebar-line:before {
-  content: "";
+.allTitle .sidebar-right .sidebar-line .innerSidebar {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100px;
+  width: calc(100%/4);
   height: 5px;
   background-color: #FAFCFB;
   border-radius: 5px;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .allTitle .sidebar-left {
@@ -393,7 +399,7 @@ body, html {
 .blog .container .row .sec2-title .sec2-subtitle {
   text-indent: 2rem;
   line-height: 1.6rem;
-  margin-bottom: 2vw;
+  margin-bottom: 0;
 }
 
 .blog .container .row .sec2-title .sec2-button {
@@ -403,6 +409,14 @@ body, html {
 .blog .container .row .sec2-title .sec2-button a {
   text-decoration: none;
   color: #EBCC91;
+}
+
+.blog .container .row .sec2-title .parent {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-bottom: 2vw;
 }
 
 .rwdBlog .container .row .sec2-title {
@@ -830,10 +844,18 @@ body, html {
           transform: none;
 }
 
+.rwdworks .container .row .text {
+  font-size: 20px;
+}
+
 .rwdworks .container .row .pic-big {
   height: 230px;
   margin-top: 100px;
   margin-bottom: 15px;
+}
+
+.rwdworks .container .row .pic-big .text {
+  font-size: 20px;
 }
 
 .rwdworks .container .row .pic-small {
@@ -855,6 +877,10 @@ body, html {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   width: 55px;
+}
+
+.icon {
+  width: 200px;
 }
 
 @media (min-width: 1201px) {

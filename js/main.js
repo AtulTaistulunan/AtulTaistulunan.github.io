@@ -54,32 +54,7 @@ document.addEventListener('DOMContentLoaded',function(){
     });
 });
 
-//取消滾動事件
-var allScroll =  document.querySelector('.allScroll');
 
-let timer;
-allScroll.addEventListener('wheel',function(e){
-
-        e.preventDefault();
-
-        //判斷scroolUp或scrollDown
-        var y = e.deltaY;
-        
-        let context = this;
-        let args = arguments;
-        console.log(this);
-        clearTimeout(timer);
-        clearAnimate(now_sec_index);
-        timer = setTimeout(function() {
-            pageMove.apply(context, args);
-        }, 1000);
-});
-
-window.addEventListener('keydown',function(e){
-    if(e.key == 'ArrowDown' || e.key == 'ArrowUp'){
-        e.preventDefault();
-    }
-});
 
 //滑鼠
 const cursor = document.querySelector('.cursor');
@@ -102,6 +77,8 @@ document.addEventListener('mouseup', function(){
     cursorinner.classList.remove('cursorinnerhover');
 });
 
+//滾動事件
+var allScroll =  document.querySelector('.allScroll');
 //**** 函式區 ****//
 
 function resizeScreen(windowWidth) {
@@ -172,6 +149,31 @@ function resizeScreen(windowWidth) {
         //**sec4 **
         changeHTML('works-title','作品集<br><span>Works</span>');
         removeClass('works', 'rwdworks');
+
+        //取消滾動事件
+        let timer;
+        allScroll.addEventListener('wheel',function(e){
+
+            e.preventDefault();
+
+            //判斷scroolUp或scrollDown
+            var y = e.deltaY;
+        
+            let context = this;
+            let args = arguments;
+            // console.log(this);
+            clearTimeout(timer);
+            clearAnimate(now_sec_index);
+            timer = setTimeout(function() {
+                pageMove.apply(context, args);
+            }, 1000);
+        });
+
+        window.addEventListener('keydown',function(e){
+            if(e.key == 'ArrowDown' || e.key == 'ArrowUp'){
+                e.preventDefault();
+            }
+        });
     }
 }
 

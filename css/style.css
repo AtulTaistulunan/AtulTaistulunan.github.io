@@ -888,7 +888,7 @@ body, html {
 .allScroll {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   top: 0px;
 }
 
@@ -917,7 +917,7 @@ section {
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  background-color: black;
+  background-color: #FAFCFB;
   opacity: .3;
   position: fixed;
   -webkit-transform: translate(-50%, -50%);
